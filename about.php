@@ -48,64 +48,78 @@
                 <!-- Member contributions and quotes -->
                 <section id="members">
                     <h2>Our Members</h2>
-                    <dl>
-                        <div>
-                            <dt>Ton Hoang Do</dt>
-                            <dt style="font-style: italic" id="studentid">Student ID: 106471563</dt>
-                                <dd>He created and formatted the Home page and ensured that the entire website was up to standards, formatted correctly across the site and did not include plagiarism
-                                    <h3 id="quoteheading">Favourite quote</h3>
-                                    <ul>
-                                        <li>"Thất bại là mẹ thành công"
+
+                    <?php
+                        require_once "settings.php";
+                        $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
+                        $sql = "SELECT id, name, student_id, contribution, quote, translation FROM about_contributions";
+                        $result = mysqli_query($conn, $sql);
+
+                        if ($result->num_rows > 0) {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo "<dl>";
+                                    echo "<div>";
+                                        echo "<dt>" . $row["name"] . "</dt>";
+                                        echo "<dt style='font-style: italic' id='studentid'>Student ID: " . $row["student_id"] . "</dt>";
+                                            echo "<dd>" . $row["contribution"];
+                                                echo "<h3 id='quoteheading'>Favourite quote</h3>";
+                                                echo "<ul>";
+                                                    echo"<li>" . $row["quote"];
+                                                    echo "<ul>";
+                                                        echo "<li>" . $row["translation"] . "</li>";                                            
+                                                    echo "</ul>";
+                                                    echo "</li>";
+                                                echo "</ul>";
+                                            echo "</dd>";
+                                    echo "</div>";
+                                echo "</dl>";
+                            }
+                        }
+                    
+                        
+                            /*<div>
+                                <dt>David Tucker</dt>
+                                <dt style="font-style: italic" id="studentid">Student ID: 105914164</dt>
+                                    <dd>He created and formatted the Join Our Team page and was our point of communication to others through the Canvas Discussion Board should we have problems
+                                        <h3 id="quoteheading">Favourite quote</h3>
                                         <ul>
-                                            <li>Failure is the mother of success</li>
+                                            <li>"Carpe diem"
+                                            <ul>
+                                                <li>Seize the day</li>
+                                            </ul>
+                                            </li>
                                         </ul>
-                                        </li>
-                                    </ul>
-                                </dd>
-                        </div>
-                        <div>
-                            <dt>David Tucker</dt>
-                            <dt style="font-style: italic" id="studentid">Student ID: 105914164</dt>
-                                <dd>He created and formatted the Join Our Team page and was our point of communication to others through the Canvas Discussion Board should we have problems
-                                    <h3 id="quoteheading">Favourite quote</h3>
-                                    <ul>
-                                        <li>"Carpe diem"
+                                    </dd>
+                            </div>
+                            <div>
+                                <dt id="member">Myles McCarthy</dt>
+                                <dt style="font-style: italic" id="studentid">Student ID: 106564353</dt>
+                                    <dd>He created and formatted the Career page and helped to create and manage Jira, our project management software, for the team, ensuring that the team followed the sprints laid out by Oscar
+                                        <h3 id="quoteheading">Favourite quote</h3>
                                         <ul>
-                                            <li>Seize the day</li>
+                                            <li>"Bättre en fågel i handen än tio i skogen"
+                                            <ul>
+                                                <li>A bird in the hand is worth two in the bush</li>
+                                            </ul>
+                                            </li>
                                         </ul>
-                                        </li>
-                                    </ul>
-                                </dd>
-                        </div>
-                        <div>
-                            <dt id="member">Myles McCarthy</dt>
-                            <dt style="font-style: italic" id="studentid">Student ID: 106564353</dt>
-                                <dd>He created and formatted the Career page and helped to create and manage Jira, our project management software, for the team, ensuring that the team followed the sprints laid out by Oscar
-                                    <h3 id="quoteheading">Favourite quote</h3>
-                                    <ul>
-                                        <li>"Bättre en fågel i handen än tio i skogen"
+                                    </dd>
+                            </div>
+                            <div>
+                                <dt id="member">Oscar Hill</dt>
+                                <dt style="font-style: italic" id="studentid">Student ID: 106509503</dt>
+                                    <dd>He created and formatted this About Us page and, along with Myles, helped to create and manage Jira for the team, helping to split up the project into manageable 'sprints' of work
+                                        <h3 id="quoteheading">Favourite quote</h3>
                                         <ul>
-                                            <li>A bird in the hand is worth two in the bush</li>
+                                            <li>"Memento mori, memento vivere"
+                                            <ul>
+                                                <li>Remember you will die, remember to live</li>
+                                            </ul>
+                                            </li>
                                         </ul>
-                                        </li>
-                                    </ul>
-                                </dd>
-                        </div>
-                        <div>
-                            <dt id="member">Oscar Hill</dt>
-                            <dt style="font-style: italic" id="studentid">Student ID: 106509503</dt>
-                                <dd>He created and formatted this About Us page and, along with Myles, helped to create and manage Jira for the team, helping to split up the project into manageable 'sprints' of work
-                                    <h3 id="quoteheading">Favourite quote</h3>
-                                    <ul>
-                                        <li>"Memento mori, memento vivere"
-                                        <ul>
-                                            <li>Remember you will die, remember to live</li>
-                                        </ul>
-                                        </li>
-                                    </ul>
-                                </dd>
-                        </div>
-                    </dl>
+                                    </dd>
+                            </div>*/
+                    ?>
                 </section>
 
                 <!-- Fun fact table -->
@@ -169,6 +183,6 @@
     <hr id="footer-break">
 
     <?php include 'incfiles/footer.inc'; ?>
-    
+
 </body>
 </html>
