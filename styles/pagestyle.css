@@ -1,0 +1,55 @@
+/* General reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4ff;
+    color: #1a2b5e;
+}
+
+/* Navigation */
+/* Blue box around nav */
+nav {
+    padding: 10px 20px;
+    background-color: #1a2e69;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 20px;
+    text-align: center;
+}
+/* Formatting of links */
+nav ul li a {
+    color: #c8e0f8;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+/* Hover blue effect */
+nav ul li a:hover {
+    color: #3d8ef0;
+}
+
+/* Footer text formatting */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1a2b5e;
+    color: #c8e0f8;
+    clear: both; 
+}
+footer a:hover {
+    text-decoration: underline;
+    color: whitesmoke;
+}
+footer a {
+    color: #10c5d9;
+    text-decoration: none; /* removes underline */
+}

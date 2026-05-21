@@ -1,0 +1,108 @@
+header{
+    display: flex;
+    justify-content: center;
+    background-color : #12204a;
+}
+
+/* navigation box */
+nav {
+    padding: 10px 20px; /* adds padding to top/bottom and left/right */
+    background-color: #1a2e69;
+    text-align: center;
+}
+/* navigation links */
+nav a {
+    color: #c8e0f8;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    
+}
+/* navigation link hover */
+nav a:hover {
+    color: #3d8ef0;
+}
+
+/* makes unordered lists dotpoints */
+ul {
+    list-style-type: disc; 
+    padding-left: 20px;
+}
+
+/* makes ordered lists numbered */
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+/* heading 1 colouring and bottom margin */
+h1 {
+    color: #1a2e69;
+    margin-bottom: 10px;
+    margin-top : 20px;
+    border-bottom: 2px solid #1a2e69;
+}
+/* heading 2 and salary styling */
+h2, #salary {
+    color: #1a2e69;
+    font-size: 1.1rem;     
+    font-weight: 500;       /* makes text lighter */
+    margin-top: 2px;        
+    margin-bottom: 2px;
+    margin-left: 15px;   
+}
+
+/* Salary specifically */
+.salary {
+    font-size: 1.1rem;        
+    margin-bottom: 10px;    
+}
+
+/* title of page */
+#job-listings-header h3 {
+    font-size: 2.5rem;        
+    font-weight: bold;        
+    color: #1a2e69;           
+    text-align: center;       
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* webpage desciption */
+#job-listings-text h3 {
+    font-size: 1.2rem;        
+    font-weight: 500;         
+    color: #1a2e69;           
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* job description styling class selector using class selector */
+.job-description {
+    margin-left: 15px;         
+    margin-bottom: 20px;     
+}
+/* flex container for job info sections */
+.job-info-flex-container {
+    display: flex;
+    justify-content: space-between; /* adds space between sections */
+    background-color: #f6f5e9; /* light background for contrast */
+}
+
+/* gets class for each main section styling reporting line, key responsibilities and essential requirements */
+.reporting-line, .key-responsibilities, .essential-requirements {
+    padding: 15px;              /* adds padding */
+    margin-bottom: 20px;        /* adds margin  to bottom*/
+    width: 30%;                 /* each section only takes 30%*/
+}
+
+aside {
+    float: right;
+    width: 25%;
+    margin: 2%;
+    padding: 6px;
+    color: #1a2e69;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid #1a2e69;  /* adds a line around the text */
+}

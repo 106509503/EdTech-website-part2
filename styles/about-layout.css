@@ -1,0 +1,126 @@
+/* Header 1 formatting*/
+h1 {
+    font-size: 40px;         
+    text-align: center;       
+    margin-top: 10px;
+}
+
+/* Article break spacing */
+#article-break {
+    margin-top: 15px;
+}
+
+/* Figure formatting*/
+/* Creating flexbox for entire page */
+.article{
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+/* All writing in article */
+article {
+    margin-left: 10px;
+    flex: 2;
+}
+/* Putting figure on the right */
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+/* Image formatting */
+.container img {
+    border: 5px solid #12204A;
+    max-width: 90%;
+    height: auto;
+}
+
+/* Switching image view when window too small */
+@media (max-width: 800px) { 
+    /* Switching from row to column */
+    .article {
+        flex-direction: column;
+    }
+    /* New image formatting */
+    .container img {
+        min-width: 0;
+        width: 100%;   
+        max-width: 100%;
+    }
+}
+
+/* Sub titles formatting */
+h2 {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+/* Student id size */
+#studentid {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Team list structure */
+dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+/* Team list text formatting */
+ul {
+    list-style: none;
+}
+ul ul{
+    list-style: disc;
+    margin-left: 20px;
+}
+dt {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
+}
+#quoteheading{
+    margin-top: 5px;
+}
+h3 {
+    font-size: 16px;
+}
+
+/* Table */
+/* Table positioning */
+table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Table text formating */
+th, td {
+    border-color: #000000;
+    border: 1px solid;
+    padding: 5px;
+}
+table caption {
+    font-weight: bold;
+}
+/* Table hover bolden */
+td:hover{
+    font-weight: bold;
+}
+
+/* Footer to bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+#footer-break {
+    margin-top: 20px;
+}

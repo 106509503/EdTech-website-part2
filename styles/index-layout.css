@@ -1,0 +1,266 @@
+/* Header with background image*/
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url(../images/marketing/edtech-background.jpeg);/* I took the image from this website: https://talentsprint.com/blog/edtech-education-management*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 15px;
+
+    /* pushes content to the right */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header-right {
+    padding: 15px;
+    border-radius: 8px;
+    width: 320px;
+    
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.header-top img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    border: 2px solid #c8e0f8;
+}
+
+.header-title h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    color: white;    
+}
+
+.header-title p {
+    font-size: 0.8em;
+    color: lightblue;
+    font-style: italic;
+}
+
+/* Navigation */
+
+
+/* Search bar */
+.search-bar {
+    margin-top: 15px;
+}
+
+.search-bar fieldset {
+    border: 1px solid #c8e0f8;
+    border-radius: 6px;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;    
+}
+.search-bar legend {
+    font-size: 0.875em;
+    color: #c8e0f8;
+    font-weight: bold;
+}
+
+/* Stack everything vertically */
+.search-bar label {
+    display: block;
+    font-size: 0.875em;
+    color: whitesmoke;
+    margin-bottom: 3px;
+    margin-top: 8px;    
+}
+
+.search-bar input[type="search"] {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #3d8ef0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+    font-size: 0.85em;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    background-color: #3d8ef0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    font-size: 1.2rem;
+}
+
+/* Dropdowns side by side */
+.search-bar .filter-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.search-bar select {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #3d8ef0;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    font-size: 0.85em;
+}
+
+.search-bar button:hover {
+    background-color: #347dd6;
+}
+
+/* Slogan */
+.slogan {
+    text-align: center;
+    padding: 15px;
+    
+    
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Main content */
+.main-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Company description */
+.company-description {
+    background-color: whitesmoke;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    border-left: 5px solid #3d8ef0;
+}
+
+.company-description img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #c8e0f8;
+}
+
+.company-description h2 {
+    color: #1a2b5e;
+    margin-bottom: 10px;
+}
+
+.company-description p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Product table */
+.table-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.table-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a2b5e
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+table th, table td {
+    border: 1px solid #c8e0f8;
+}
+
+th {
+    background-color: #1a2b5e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: #e8f0fc;
+}
+
+.smart-watch img {
+    border-collapse: collapse;
+    background-color: #e8f0fc;
+}
+
+td.category {
+    background-color: #f7f7f9;
+}
+
+td button {
+    background-color: #3011a0;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+td button:hover {
+    background-color: #347dd6;
+}
+
+/* Acknowledgment */
+.acknowledgement {
+    background-color: #e8f0fc;
+    border-left: 5px solid #1a2b5e;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.acknowledgement h2 {
+    color: #1a2b5e;
+    margin-bottom: 10px;
+}
+
+.acknowledgement p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    table {
+        width: 90%;
+    }
+
+    #header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechHive is a forward-thinking Educational Technology (EdTech) company developing innovative digital learning tools and online platforms.">
+    <meta name="keywords" content="EdTech, digital learning, online education, educational technology">
+    <meta name="authors" content="Ton Hoang Do, David Tucker, Myles McCarthy and Oscar Hill">
+    <link rel="stylesheet" href="styles/pagestyle.css">
+    <link rel="stylesheet" href="styles/index-layout.css">
+    <style>
+        footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+    <title>TechHive | Accessible Digital Learning </title>
+</head>
+<body>
+    <!--The header section for company logo, navigation bars, slogans-->
+    <header>
+        <div class="header-right">
+            <div class="header-top">
+                <a href="index.html"><img src="images/logos/TechHive-logo.png" alt="TechHive logo" title="Image sized 154kb" width="200" height="200" ></a> <!-- I generated this image with Shopify logo generator -->
+                <div class="header-title"> 
+                    <h1>TechHive</h1>
+                    <p><em>Empowering Digital Learning</em></p>
+                </div>
+            </div>
+
+            <!--SEARCH BOX with a button (search for a product)-->
+            <div class="search-bar">
+                <form action="#" method="get">
+                    <fieldset>
+                        <legend>Search for courses</legend>
+                        <label for="search-query">Course Title or Keyword</label>
+                        <input type="search" id="search-query" name="search-query" placeholder="e.g., UI Design, Python Programming, etc."
+                        aria-label="Search through site content">
+
+                        <!-- Filter dropdown -->
+                        <label for="course-filter">Filter by Category:</label>
+                        <select id="course-filter" name="course-filter" class="filter-row">
+                            <option value="all">All Courses</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="design">Design</option>
+                            <option value="data-science">Data Science</option>
+                        </select>
+
+                        <!-- Level filter-->
+                        <label for="course-level">Filter by Level:</label>
+                        <select id="course-level" name="course-level" class="filter-row">
+                            <option value="all">All Levels</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+
+                        <button type="submit" aria-label="Search" style="font-size: 1.5rem;">&#8981;</button>
+                    </fieldset>                
+                </form>
+            </div>
+        </div>
+        
+    </header>
+
+    
+    
+    
+    <!--NAVIGATION BAR with links to Home, Careers, About Us and Join Our Team pages-->
+    <nav>
+        <ul>
+            <li><a href="index.html" target="_self" >Home</a></li>
+            <li><a href="jobs.html" target="_self" >Careers</a></li>
+            <li><a href="about.html" target="_self" >About Us</a></li>
+            <li><a href="apply.html" target="_self" >Join Our Team</a></li>
+        </ul>
+    </nav>
+    <!--Slogan-->
+    <div class="slogan">
+        <h1>Tech-Enabled Learning for Everyone</h1>
+    </div>
+    <hr>
+
+    <!--======== MAIN CONTENT ===============-->
+    <main>
+        <div class="main-content">
+            <!--Company Description-->
+            <section>
+                <div class="company-description">
+                    <!--additional image-->
+                    <img id="marketing-image" src="images/marketing/Edtech.webp" alt="EdTech" width="400" height="400">
+                    <div>
+                        <h2>Transforming Digital Education</h2>
+                        <p>
+                            TechHive is a forward-thinking Educational Technology (EdTech) company 
+                        developing innovative digital learning tools and online platforms. We are committed 
+                        to creating accessible and inclusive education services that support learners of all 
+                        backgrounds and abilities.
+                        </p>
+                        <p>
+                            Our growing team of web developers and designers work together to build responsive 
+                            learning management systems, interactive course content, and user-friendly educational 
+                            applications. From adaptive learning features to accessibility-first design, we aim 
+                            to enhance the future of online education.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!--Product lists with merged cell table-->
+            <section>
+                <div class="table-section">
+                     <h2 style="text-align: center;">TechHive Course Catalog</h2>
+
+                    <table>
+
+                        <!-- Merged Header Row -->
+                        <thead>
+                            <tr>
+                                <th colspan="6">Featured Courses</th>
+                            </tr>
+
+                            <!-- Column Titles -->
+                            <tr>
+                                <th class="sub-header" id="category">Category</th>
+                                <th class="sub-header" id="course">Course <Title></Title></th>
+                                <th class="sub-header" id="name">Instructor</th>                        
+                                <th class="sub-header" id="description">Level</th>
+                                <th class="sub-header" id="duration">Duration</th>
+                                <th class="sub-header" id="price">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Web Development Category (Rowspan)-->
+                            <tr>
+                                <td rowspan="3" class="category">Web Development</td>
+                                <td>HTML &amp; CSS for Beginners</td>
+                                <td>David Tucker</td>
+                                <td>Beginner</td>
+                                <td>12 hours</td>
+                                <td>$19.99</td>                                
+                            </tr>
+
+                            <tr>
+                                <td>JavaScript Essentials</td>
+                                <td>Ton Hoang Do</td>
+                                <td>Intermediate</td>
+                                <td>16 hours</td>
+                                <td>$29.99</td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td>Build Modern Web Applications</td>
+                                <td>Myles McCarthy</td>
+                                <td>Advanced</td>
+                                <td>24 hours</td>
+                                <td>$39.99</td>
+                            </tr>
+
+                            <!-- Data Science: rowspan across 2 rows -->
+                            <tr>
+                                <td rowspan="2" class="category">Data Science</td>
+                                <td>Python for Data Analysis</td>
+                                <td>Oscar Hill</td>
+                                <td>Intermediate</td>
+                                <td>20 hours</td>
+                                <td>$34.99</td>
+                            </tr>
+                            <tr>
+                                <td>Machine Learning </td>
+                                <td>David Tucker</td>
+                                <td>Advanced</td>
+                                <td>30 hours</td>
+                                <td>$44.99</td>
+                            </tr>
+                            <tr>
+                                <td class="category">Design</td>
+                                <td>UI/UX Design Fundamentals</td>
+                                <td>Ton Hoang Do</td>
+                                <td>Beginner</td>
+                                <td>15 hours</td>
+                                <td>$19.99</td>
+                            </tr>
+                             <tr>
+                                <td colspan="6" style="text-align: center; font-style: italic; color: #555;">
+                                    All courses include lifetime access, certificate of completion, and mobile support.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+            </section>
+
+            <!--Acknowledgement of Country-->
+            <section>
+                <div class="acknowledgement">
+                    <h2>Acknowledgement of Country</h2>
+                    <p>
+                        We respectfully acknowledge the Wurundjeri Woi-wurrung People 
+                        of the Kulin Nation, who are the Traditional Owners of the land 
+                        on which ShopWell&rsquo;s Melbourne HQ is located in Melbourne&rsquo;s 
+                        east, and pay our respect to their Elders past and present.
+                    </p>
+                    <p>
+                        We are honoured to recognise our connection to Wurundjeri Country, 
+                        history, culture and spirituality through these locations, and strive to ensure 
+                        that we operate in a manner that respects and honours the Elders and Ancestors 
+                        of these lands.
+                    </p>
+                    <p>
+                        We also acknowledge and respect the Traditional Owners of lands across Australia, 
+                        their Elders, Ancestors, cultures and heritage.
+                    </p>
+                </div>    
+            </section>
+
+        </div>        
+    </main>
+    <hr>
+
+    <!--============ FOOTER with Jira, GitHub and email link ===============-->
+
+    <footer>
+        <p>
+            <a href="https://oscarhill4.atlassian.net/jira/software/projects/WTPA1/boards/35/backlog?epics=visible">Jira Project Board</a> &nbsp;|&nbsp;
+            <a href="https://github.com/Tony-linux973/EdTech-static-website.git">GitHub Repository</a> &nbsp;|&nbsp;
+            <a href="https://tony-linux973.github.io/EdTech-static-website/">Project Website</a> &nbsp;|&nbsp;
+            Email us at: <a href="mailto:info@techhive.com">info@techhive.com</a>
+        </p>
+        <p>&copy;2026 TechHive - Building the Future of Digital Education.</p>
+    </footer>
+</body>
+</html>
