@@ -21,8 +21,8 @@
 
 </head>
 <body>
-    <?php include 'incfiles/header.inc'; 
-    include 'incfiles/nav.inc';
+    <?php include 'extrafiles/header.inc'; 
+    include 'extrafiles/nav.inc';
     ?>
     
     
@@ -50,7 +50,7 @@
                     <h2>Our Members</h2>
 
                     <?php
-                        require_once "settings.php";
+                        require_once "extrafiles/settings.php";
                         $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
                         $sql = "SELECT id, name, student_id, contribution, quote, translation FROM about_contributions";
                         $result = mysqli_query($conn, $sql);
@@ -182,7 +182,7 @@
 
     <hr id="footer-break">
 
-    <?php include 'incfiles/footer.inc'; ?>
+    <?php include 'extrafiles/footer.inc'; ?>
 
 </body>
 </html>

@@ -38,8 +38,8 @@
 </head>
 
 <body>
-    <?php include 'incfiles/header.inc'; 
-    include 'incfiles/nav.inc';
+    <?php include 'extrafiles/header.inc'; 
+    include 'extrafiles/nav.inc';
     ?>
 
     <section id="job-listings-header">
@@ -178,7 +178,7 @@
 
     <aside><p>Avoid scams: no real employer charges interview or application fees.</p></aside>
     
-    <?php include 'incfiles/footer.inc'; ?>
+    <?php include 'extrafiles/footer.inc'; ?>
 
 </body>
 

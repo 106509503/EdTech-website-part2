@@ -66,7 +66,7 @@
     
     
     <?php
-    include 'incfiles/nav.inc';
+    include 'extrafiles/nav.inc';
     ?>
 
     <!--Slogan-->
@@ -216,7 +216,7 @@
 
     <!--============ FOOTER with Jira, GitHub and email link ===============-->
 
-    <?php include 'incfiles/footer.inc'; ?>
+    <?php include 'extrafiles/footer.inc'; ?>
 
 </body>
 </html>

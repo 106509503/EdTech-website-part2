@@ -26,8 +26,8 @@
 </head>
 
 <body>
-    <?php include 'incfiles/header.inc'; 
-    include 'incfiles/nav.inc';
+    <?php include 'extrafiles/header.inc'; 
+    include 'extrafiles/nav.inc';
     ?>
 
     <!-- Application Form, the main content of the site-->
@@ -205,7 +205,7 @@
         </form>
     </main>
     
-    <?php include 'incfiles/footer.inc'; ?>
+    <?php include 'extrafiles/footer.inc'; ?>
     
 </body>
 
