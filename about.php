@@ -15,7 +15,7 @@
         header {
             display: flex;
             justify-content: center;
-            background-color: #12204A;
+            background-color: #2c327c;
         }
     </style>
 
@@ -56,8 +56,8 @@
                         $result = mysqli_query($conn, $sql);
 
                         if ($result->num_rows > 0) {
+                            echo "<dl>";
                             while($row = mysqli_fetch_assoc($result)) {
-                                echo "<dl>";
                                     echo "<div>";
                                         echo "<dt>" . $row["name"] . "</dt>";
                                         echo "<dt style='font-style: italic' id='studentid'>Student ID: " . $row["student_id"] . "</dt>";
@@ -72,8 +72,8 @@
                                                 echo "</ul>";
                                             echo "</dd>";
                                     echo "</div>";
-                                echo "</dl>";
                             }
+                            echo "</dl>";
                         }
                     
                         

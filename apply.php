@@ -20,7 +20,7 @@
             display: grid;
             grid-template-columns: 1fr;
             justify-items: center;
-            background-color: #12204A;
+            background-color: #2c327c;
         }
     </style>
 </head>
