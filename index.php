@@ -66,7 +66,7 @@
     
     
     <?php
-    include 'inc files/nav.inc';
+    include 'incfiles/nav.inc';
     ?>
 
     <!--Slogan-->
@@ -216,14 +216,7 @@
 
     <!--============ FOOTER with Jira, GitHub and email link ===============-->
 
-    <footer>
-        <p>
-            <a href="https://oscarhill4.atlassian.net/jira/software/projects/WTPA1/boards/35/backlog?epics=visible">Jira Project Board</a> &nbsp;|&nbsp;
-            <a href="https://github.com/Tony-linux973/EdTech-static-website.git">GitHub Repository</a> &nbsp;|&nbsp;
-            <a href="https://tony-linux973.github.io/EdTech-static-website/">Project Website</a> &nbsp;|&nbsp;
-            Email us at: <a href="mailto:info@techhive.com">info@techhive.com</a>
-        </p>
-        <p>&copy;2026 TechHive - Building the Future of Digital Education.</p>
-    </footer>
+    <?php include 'incfiles/footer.inc'; ?>
+
 </body>
 </html>
