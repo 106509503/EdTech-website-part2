@@ -173,7 +173,7 @@
 </section>        
     </div>
     <div id="apply-now">
-        <a href="apply.html" target="_self">Apply Now To Get a Great Opportunity!</a>
+        <a href="apply.php" target="_self">Apply Now To Get a Great Opportunity!</a>
     </div>
 
     <aside><p>Avoid scams: no real employer charges interview or application fees.</p></aside>
