@@ -41,15 +41,79 @@
     <?php include 'extrafiles/header.inc'; 
     include 'extrafiles/nav.inc';
     ?>
+<section id="job-listings-header">
+    <h3>Job Listings</h3>
+</section>
 
-    <section id="job-listings-header">
-        <h3>Job Listings</h3>
+<section id="job-listings-text">
+    <h3>Explore our list of currently offered Jobs below!</h3>
+</section>
+
+<form method="get" action="jobs.php" style="text-align:center; margin-bottom:20px;">
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search">
+</form>
+
+<?php
+$conn = new mysqli("localhost", "root", "", "edtech_db"); //setup connection to database
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$search = isset($_GET['search']) ? $_GET['search'] : ''; //get search query from URL, if it exists otherwise empty string
+
+if ($search !== '') { //checks if search is empty if not searches if title or anything contains the searched term
+    $search = $conn->real_escape_string($search);
+    $query = "SELECT * FROM jobs_information 
+              WHERE title LIKE '%$search%' 
+              OR description LIKE '%$search%' 
+              OR reporting_line LIKE '%$search%' 
+              OR key_responsibilities LIKE '%$search%' 
+              OR essential_requirements LIKE '%$search%'";
+} else {
+    $query = "SELECT * FROM jobs_information"; //if search empty diplsays all jobs
+}
+$result = $conn->query($query); //execute query and get result set
+
+while ($job = $result->fetch_assoc()) { //loop through each job and display as set below
+?>
+    
+<section class="title-section">
+    <h1><?php echo $job['title']; ?></h1>
+    <h2>Ref Num: <?php echo $job['ref_num']; ?></h2>
+    <h2 class="salary">Salary: $<?php echo $job['salary_min']; ?> - $<?php echo $job['salary_max']; ?></h2>
+</section>
+
+<section class="job-description">
+    <h3>Description</h3>
+    <p><?php echo $job['description']; ?></p>
+</section>
+
+<div class="job-info-flex-container">
+
+    <section class="reporting-line">
+        <h4>Reporting Line:</h4>
+        <p><?php echo str_replace(';', '<br>', $job['reporting_line']); ?></p>
     </section>
 
-    <section id="job-listings-text">
-        <h3>Explore our list of currently offered Jobs below!</h3>
+    <section class="key-responsibilities">
+        <h4>Key Responsibilities</h4>
+        <p><?php echo str_replace(';', '<br>', $job['key_responsibilities']); ?></p>
     </section>
 
+    <section class="essential-requirements">
+        <h4>Essential Requirements</h4>
+        <p><?php echo str_replace(';', '<br>', $job['essential_requirements']); ?></p>
+    </section>
+
+</div>
+
+<?php } ?>
+
+
+
+<!--
     <section class="title-section">
         <h1>Chief Web Designer</h1>
         <h2>Ref Num: XcZ35</h2>
@@ -170,7 +234,8 @@
             <li>Good social skills and the ability to communicate effectively with designers and developers</li>
             <li>Experience creating digital learning content, curriculum materials, or instructional resources. Provide examples of past work. </li>
         </ul>
-</section>        
+</section>     
+-->   
     </div>
     <div id="apply-now">
         <a href="apply.php" target="_self">Apply Now To Get a Great Opportunity!</a>
