@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <?php include 'extrafiles/header.inc'; 
     include 'extrafiles/nav.inc';
     ?>
