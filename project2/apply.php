@@ -153,43 +153,43 @@
                 <legend>Skills:</legend>
                 <div class="checkbox-grid">
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-js" name="skills" value="JavaScript">
+                        <input type="checkbox" id="skill-js" name="skills[]" value="JavaScript">
                         <label for="skill-js">JavaScript</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-python" name="skills" value="Python">
+                        <input type="checkbox" id="skill-python" name="skills[]" value="Python">
                         <label for="skill-python">Python</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-java" name="skills" value="Java">
+                        <input type="checkbox" id="skill-java" name="skills[]" value="Java">
                         <label for="skill-java">Java</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-html" name="skills" value="HTML/CSS">
+                        <input type="checkbox" id="skill-html" name="skills[]" value="HTML/CSS">
                         <label for="skill-html">HTML / CSS</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-sql" name="skills" value="SQL">
+                        <input type="checkbox" id="skill-sql" name="skills[]" value="SQL">
                         <label for="skill-sql">SQL</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-react" name="skills" value="React">
+                        <input type="checkbox" id="skill-react" name="skills[]" value="React">
                         <label for="skill-react">React</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-nodejs" name="skills" value="Node.js">
+                        <input type="checkbox" id="skill-nodejs" name="skills[]" value="Node.js">
                         <label for="skill-nodejs">Node.js</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-pm" name="skills" value="Project Management">
+                        <input type="checkbox" id="skill-pm" name="skills[]" value="Project Management">
                         <label for="skill-pm">Project Management</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-ux" name="skills" value="UI/UX Design">
+                        <input type="checkbox" id="skill-ux" name="skills[]" value="UI/UX Design">
                         <label for="skill-ux">UI / UX Design</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="checkbox" id="skill-data" name="skills" value="Data Analysis">
+                        <input type="checkbox" id="skill-data" name="skills[]" value="Data Analysis">
                         <label for="skill-data">Data Analysis</label>
                     </div>
                 </div>

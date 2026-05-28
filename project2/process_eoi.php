@@ -1,7 +1,9 @@
 <?php
 require_once "extrafiles/settings.php";
-$conn = new mysqli($host, $user, $pwd, $sql_db); // Create connection
+// connects to db
+$conn = new mysqli($host, $user, $pwd, $sql_db);
 
+// creates table is it doesnt already exits
 mysqli_query($conn, "CREATE TABLE IF NOT EXISTS eoi (
     eoinum      INT AUTO_INCREMENT PRIMARY KEY,
     jobref      VARCHAR(5),
@@ -20,30 +22,39 @@ mysqli_query($conn, "CREATE TABLE IF NOT EXISTS eoi (
     status      ENUM('New','Current','Final') DEFAULT 'New'
 )");
 
+
+// sets sql query to ? placeholder 
 $statement = mysqli_prepare($conn,
- "INSERT INTO eoi (jobref, firstname, lastname, dob, gender, street, suburb, state, postcode, email, phone, skills, otherskills, status)
- VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    "INSERT INTO eoi (jobref, firstname, lastname, dob, gender, street, suburb, state, postcode, email, phone, skills, otherskills)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
- $skills = implode(', ', $_POST['skills'] ?? []);
+// joins skill array into string with comma and space as separator, if skills is not set, it defaults to an empty array ??
+$skills = implode(', ', $_POST['skills'] ?? []);
 
- mysqli_statement_bind_param($statement, "sssssssssssss",
+
+// maps each $_POST value to a ? placeholder, the "sssssssssssss" string indicates that all parameters are strings
+mysqli_stmt_bind_param($statement, "sssssssssssss",
     $_POST['jobref'], $_POST['firstname'], $_POST['lastname'],
     $_POST['dob'], $_POST['gender'], $_POST['street'],
-    $_POST['suburb'], $_POST['state'], $_POST['postcode'], 
+    $_POST['suburb'], $_POST['state'], $_POST['postcode'],
     $_POST['email'], $_POST['phone'], $skills, $_POST['otherskills']);
 
-mysqli_statement_execute($statement);
+// executes and gets eoi number
+mysqli_stmt_execute($statement);
 $eoinum = mysqli_insert_id($conn);
-
 ?>
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>EOI Confirmation</title>
 </head>
 <body>
-    <p>Submitted. Your EOI number is <strong><?php echo $eoinum; ?></strong></p>
+        <?php include 'extrafiles/header.inc'; 
+    include 'extrafiles/nav.inc';
+    ?>
+    <p>Thank you <?php echo $_POST['firstname']; ?>. Your EOI number is <strong><?php echo $eoinum; ?></strong></p>
     <a href="apply.php">Back</a>
+    <?php include 'extrafiles/footer.inc'; ?>
 </body>
 </html>
