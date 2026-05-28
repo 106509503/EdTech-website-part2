@@ -25,3 +25,5 @@ if ($result && $result->num_rows === 1) { //check if the query was successful an
 
 $conn->close();
 ?>
+
+//this doesnt have any protection stuff or anything, like no hash and stuff 
