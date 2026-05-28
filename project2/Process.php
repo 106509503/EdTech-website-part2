@@ -7,23 +7,32 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = $_POST['username']; // Get the username and password from the POST request
-$password = $_POST['password']; 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Check if the request method is POST
+    $username = trim($_POST['username']); // Get the username and password from the POST request
+    $password = trim($_POST['password']);
 
-$username = $conn->real_escape_string($username); // Escape the username and password to prevent SQL injection
-$password = $conn->real_escape_string($password);
+    $username = $conn->real_escape_string($username); // Escape the username and password to prevent SQL injection
+    $password = $conn->real_escape_string($password);
 
-$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"; // Query the database to check if the username and password are correct
-$result = $conn->query($sql);
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"; // Query the database to check if the username and password are correct
+    $result = mysqli_query($conn, $query);
 
-if ($result && $result->num_rows === 1) { //check if the query was successful and if there is exactly one matching user
-    $_SESSION['user'] = $username;
-    header('Location: manager.php');
-} else {
-    echo 'Invalid username or password. <a href="login.php">Try again</a>';
+    if ($user = mysqli_fetch_assoc($result)) { //check if the query was successful and if there is exactly one matching user
+     $_SESSION['username'] = $user['username']; // Set the username in the session
+     if ($user['username'] == 'admin') {
+        header('Location: manager.php');
+        exit();
+     } else {
+        header('Location: index.php');
+        exit();
+     }
+    }
+
+    $conn->close();
+ } else {
+    header('Location: login.php'); // If the request method is not POST, redirect to the login page
+    exit();
 }
-
-$conn->close();
 ?>
 
 //this doesnt have any protection stuff or anything, like no hash and stuff 
