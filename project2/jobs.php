@@ -55,7 +55,9 @@
 </form>
 
 <?php
-$conn = new mysqli("localhost", "root", "", "edtech_db"); //setup connection to database
+require_once "extrafiles/settings.php";
+
+$conn = new mysqli($host, $user, $pwd, $sql_db);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -76,41 +78,42 @@ if ($search !== '') { //checks if search is empty if not searches if title or an
 }
 $result = $conn->query($query); //execute query and get result set
 
+//display everything in the result set as set below
 while ($job = $result->fetch_assoc()) { //loop through each job and display as set below
-?>
-    
+echo '
 <section class="title-section">
-    <h1><?php echo $job['title']; ?></h1>
-    <h2>Ref Num: <?php echo $job['ref_num']; ?></h2>
-    <h2 class="salary">Salary: $<?php echo $job['salary_min']; ?> - $<?php echo $job['salary_max']; ?></h2>
+    <h1>' . $job['title'] . '</h1>
+    <h2>Ref Num: ' . $job['ref_num'] . '</h2>
+    <h2 class="salary">Salary: $' . $job['salary_min'] . ' - $' . $job['salary_max'] . '</h2>
 </section>
 
 <section class="job-description">
     <h3>Description</h3>
-    <p><?php echo $job['description']; ?></p>
+    <p>' . $job['description'] . '</p>
 </section>
 
 <div class="job-info-flex-container">
 
     <section class="reporting-line">
         <h4>Reporting Line:</h4>
-        <p><?php echo str_replace(';', '<br>', $job['reporting_line']); ?></p>
+        <p>' . str_replace(";", "<br>", $job["reporting_line"]) . '</p>
     </section>
 
     <section class="key-responsibilities">
         <h4>Key Responsibilities</h4>
-        <p><?php echo str_replace(';', '<br>', $job['key_responsibilities']); ?></p>
+        <p>' . str_replace(";", "<br>", $job["key_responsibilities"]) . '</p>
     </section>
 
     <section class="essential-requirements">
         <h4>Essential Requirements</h4>
-        <p><?php echo str_replace(';', '<br>', $job['essential_requirements']); ?></p>
+        <p>' . str_replace(";", "<br>", $job["essential_requirements"]) . '</p>
     </section>
 
 </div>
-
-<?php } ?>
-
+';
+}
+$conn->close();
+?>
 
 
 <!--
