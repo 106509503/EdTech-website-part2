@@ -50,7 +50,11 @@ $eoinum = mysqli_insert_id($conn);
     <title>EOI Confirmation</title>
 </head>
 <body>
+        <?php include 'extrafiles/header.inc'; 
+    include 'extrafiles/nav.inc';
+    ?>
     <p>Thank you <?php echo $_POST['firstname']; ?>. Your EOI number is <strong><?php echo $eoinum; ?></strong></p>
     <a href="apply.php">Back</a>
+    <?php include 'extrafiles/footer.inc'; ?>
 </body>
 </html>
