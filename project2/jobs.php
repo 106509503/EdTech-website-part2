@@ -63,7 +63,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$search = isset($_GET['search']) ? $_GET['search'] : ''; //get search query from URL, if it exists otherwise empty string
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+} else {
+    $search = '';
+} //get search query from URL, if it exists otherwise empty string
 
 if ($search !== '') { //checks if search is empty if not searches if title or anything contains the searched term
     $search = $conn->real_escape_string($search);
