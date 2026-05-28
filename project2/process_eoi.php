@@ -1,7 +1,9 @@
 <?php
 require_once "extrafiles/settings.php";
+// connects to db
 $conn = new mysqli($host, $user, $pwd, $sql_db);
 
+// creates table is it doesnt already exits
 mysqli_query($conn, "CREATE TABLE IF NOT EXISTS eoi (
     eoinum      INT AUTO_INCREMENT PRIMARY KEY,
     jobref      VARCHAR(5),
@@ -20,18 +22,24 @@ mysqli_query($conn, "CREATE TABLE IF NOT EXISTS eoi (
     status      ENUM('New','Current','Final') DEFAULT 'New'
 )");
 
+
+// sets sql query to ? placeholder 
 $statement = mysqli_prepare($conn,
     "INSERT INTO eoi (jobref, firstname, lastname, dob, gender, street, suburb, state, postcode, email, phone, skills, otherskills)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
+// joins skill array into string with comma and space as separator, if skills is not set, it defaults to an empty array ??
 $skills = implode(', ', $_POST['skills'] ?? []);
 
+
+// maps each $_POST value to a ? placeholder, the "sssssssssssss" string indicates that all parameters are strings
 mysqli_stmt_bind_param($statement, "sssssssssssss",
     $_POST['jobref'], $_POST['firstname'], $_POST['lastname'],
     $_POST['dob'], $_POST['gender'], $_POST['street'],
     $_POST['suburb'], $_POST['state'], $_POST['postcode'],
     $_POST['email'], $_POST['phone'], $skills, $_POST['otherskills']);
 
+// executes and gets eoi number
 mysqli_stmt_execute($statement);
 $eoinum = mysqli_insert_id($conn);
 ?>
