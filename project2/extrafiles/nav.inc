@@ -5,5 +5,6 @@
         <li><a href="jobs.php" target="_self">Careers</a></li>
         <li><a href="about.php" target="_self">About Us</a></li>
         <li><a href="apply.php" target="_self">Join Our Team</a></li>
+        <li><a href="login.php" target="_self">Login</a><li>
     </ul>
 </nav>
