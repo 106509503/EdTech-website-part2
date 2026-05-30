@@ -35,7 +35,7 @@
     <main>
         <h1>Job Application Form</h1>
         <!--Only one h1 for seo and accessibility-->
-        <form method="POST" action="process_eoi2.php">
+        <form method="POST" action="process_eoi.php">
             <!-- method POST for secure data submission -->
             <!-- Position Details -->
             <h2>Position Details</h2>
