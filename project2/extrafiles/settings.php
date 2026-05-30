@@ -2,5 +2,5 @@
     $host = "localhost";
     $user = "root";
     $pwd = "";
-    $sql_db = "../sqldatabase/edtech_db";    
+    $sql_db = "edtech_db";    
 ?>

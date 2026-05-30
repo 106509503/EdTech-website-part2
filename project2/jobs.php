@@ -69,14 +69,11 @@ if (isset($_GET['search'])) {
     $search = '';
 } //get search query from URL, if it exists otherwise empty string
 
-if ($search !== '') { //checks if search is empty if not searches if title or anything contains the searched term
+if (!empty($search)) { //checks if search is empty if not searches if title or anything contains the searched term
     $search = $conn->real_escape_string($search);
     $query = "SELECT * FROM jobs_information 
-              WHERE title LIKE '%$search%' 
-              OR description LIKE '%$search%' 
-              OR reporting_line LIKE '%$search%' 
-              OR key_responsibilities LIKE '%$search%' 
-              OR essential_requirements LIKE '%$search%'";
+              WHERE title LIKE '%$search%'
+              OR reporting_line LIKE '%$search%";
 } else {
     $query = "SELECT * FROM jobs_information"; //if search empty diplsays all jobs
 }
