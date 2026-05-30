@@ -17,7 +17,8 @@ $conn = new mysqli($host, $user, $pwd, $sql_db); // Create connection
      $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'"; // Query the database to check if the username and password are correct
      $result = mysqli_query($conn, $query);
 
-        if ($user = mysqli_fetch_assoc($result)) { //check if the query was successful and if there is exactly one matching user
+        $user = mysqli_fetch_assoc($result);
+        if ($user) { //check if the query was successful and if there is exactly one matching user
             $_SESSION['username'] = $user['username']; // Set the username in the session
             if ($user['username'] == 'admin') {
                 header('Location: manager.php');
