@@ -18,9 +18,16 @@
 </head>
 
 <body>
-    <?php include 'extrafiles/header.inc'; 
+    <?php
+     session_start();
+     include 'extrafiles/header.inc'; 
     include 'extrafiles/nav.inc';
     require_once "extrafiles/settings.php";
+
+    if (isset($_SESSION['error'])) {
+    echo "<p style='text-align:center;'>" . $_SESSION['error'] . "</p>";
+    unset($_SESSION['error']);
+    }
     ?>
 
     <form method="post" action="Process.php" class="center-form">
