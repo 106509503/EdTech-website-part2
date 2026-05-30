@@ -22,7 +22,7 @@ $conn = new mysqli($host, $user, $pwd, $sql_db); // Create connection
             $_SESSION['username'] = $user['username']; // Set the username in the session
             if ($user['username'] == 'admin' && $password === 'admin') {
                 $_SESSION['user_role'] = 'manager';
-                header('Location: manager.php');
+                header('Location: manage.php');
             exit();
             } else {
             header('Location: index.php');

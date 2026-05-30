@@ -1,8 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Secure gatekeeper check if the username and password are entered as 'admin'
 session_start();
 
-if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'manager') {
+if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] == 'manager') {
     header("Location: login.php");
     exit();
 }
