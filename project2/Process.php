@@ -20,7 +20,8 @@ $conn = new mysqli($host, $user, $pwd, $sql_db); // Create connection
         $user = mysqli_fetch_assoc($result);
         if ($user) { //check if the query was successful and if there is exactly one matching user
             $_SESSION['username'] = $user['username']; // Set the username in the session
-            if ($user['username'] == 'admin') {
+            if ($user['username'] == 'admin' && $password === 'admin') {
+                $_SESSION['user_role'] = 'manager';
                 header('Location: manager.php');
             exit();
             } else {

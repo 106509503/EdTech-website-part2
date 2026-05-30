@@ -1,5 +1,12 @@
 <?php
+    //Secure gatekeeper check if the username and password are entered as 'admin'
     session_start();
+
+    if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'manager') {
+        header("Location: login.php");
+        exit();
+    }
+
     require_once("extrafiles/settings.php");
     require_once("sanitise_functions.inc.php");
     $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
@@ -23,7 +30,29 @@
     if (isset($_POST['action']) && $_POST['action'] == 'delete_job_ref') {
         $delete_ref = mysqli_real_escape_string($conn, sanitise_input($_POST['delete_ref']));
 
-        if ()
+        if (!empty($delete_ref)) {
+            $delete_query = "DELETE FROM eoi WHERE job_reference = '$delete_ref'";
+            mysqli_query($conn, $delete_query);
+        }
+        header("Location: manage.php");
+        exit();
+    }
+    //fetch unique references to build dropdowns
+    $job_ref_query = "SELECT DISTINCT job_reference FROM eoi ORDER BY job_reference";
+    $job_ref_result = mysqli_query($conn, $job_ref_query);
+    $job_ref_array = [];
+
+    if ($job_ref_query) {
+        while ()
+    }
+    //variables to build List All, sort,filter
+    $where_clause = [];
+    $display_job_ref = "";
+    $display_name = "";
+
+    //List by Job reference
+    if (!empty($_GET['lby_job_ref'])) {
+        $display_job_ref = sanitise_input($_GET['lby_job_ref']);
     }
 ?>
 <!DOCTYPE html>
