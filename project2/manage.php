@@ -1,10 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 // Secure gatekeeper check if the username and password are entered as 'admin'
 session_start();
 
-if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] == 'manager') {
+if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'manager') {
     header("Location: login.php");
     exit();
 }
@@ -45,7 +44,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete_job_ref') {
 }
 
 // Fetch unique references to build dropdowns
-$job_refs_query = "SELECT DISTINCT job_reference, job_title FROM eoi ORDER BY job_reference";
+$job_refs_query = "SELECT DISTINCT job_reference FROM eoi ORDER BY job_reference";
 $job_refs_result = mysqli_query($conn, $job_refs_query);
 $job_refs_array = [];
 
@@ -53,7 +52,7 @@ $job_refs_array = [];
 if ($job_refs_result) {
     while ($job_refs_row = mysqli_fetch_assoc($job_refs_result)) {
         // FIXED: Explicitly map reference codes to titles as key => value pairing
-        $job_refs_array[$job_refs_row['job_reference']] = $job_refs_row['job_title'];
+        $job_refs_array[] = $job_refs_row['job_reference'];
     }
 }
 
@@ -150,11 +149,11 @@ $result = mysqli_query($conn, $query);
                     <select id="lby_job_ref" name="lby_job_ref">
                         <option value="">-- All Job References --</option>
                         <?php 
-                        foreach ($job_refs_array as $ref => $title) {
+                        foreach ($job_refs_array as $ref) {
                             $safe_ref = htmlspecialchars($ref);
-                            $safe_title = htmlspecialchars($title);
+                            
                             $selected = ($ref == $display_job_ref) ? 'selected' : '';
-                            echo "<option value='$safe_ref' $selected>$safe_ref ($safe_title)</option>";
+                            echo "<option value='$safe_ref' $selected>$safe_ref</option>";
                         }                                   
                         ?>
                     </select>
@@ -269,10 +268,9 @@ $result = mysqli_query($conn, $query);
                         <option value="" disabled selected>-- Select Reference Number --</option>
                         <?php
                         if (count($job_refs_array) > 0) {
-                            foreach ($job_refs_array as $ref => $title) {
+                            foreach ($job_refs_array as $ref) {
                                 $safe_ref = htmlspecialchars($ref);
-                                $safe_title = htmlspecialchars($title);
-                                echo "<option value='$safe_ref'>$safe_ref ($safe_title)</option>";
+                                echo "<option value='$safe_ref'>$safe_ref</option>";
                             }
                         } else {
                             echo "<option value='' disabled>No active job references available</option>";
