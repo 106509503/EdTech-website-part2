@@ -1,5 +1,6 @@
 <?php
-require_once "extrafiles/settings.php";
+
+require_once ("extrafiles/settings.php");
 // connects to db
 $conn = new mysqli($host, $user, $pwd, $sql_db);
 
@@ -50,7 +51,7 @@ $eoinum = mysqli_insert_id($conn);
     <title>EOI Confirmation</title>
 </head>
 <body>
-        <?php include 'extrafiles/header.inc'; 
+    <?php include 'extrafiles/header.inc'; 
     include 'extrafiles/nav.inc';
     ?>
     <p>Thank you <?php echo $_POST['firstname']; ?>. Your EOI number is <strong><?php echo $eoinum; ?></strong></p>

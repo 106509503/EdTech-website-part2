@@ -52,7 +52,7 @@
                     <?php
                         require_once "extrafiles/settings.php";
                         $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
-                        $sql = "SELECT id, name, student_id, contribution, quote, translation FROM about_contributions";
+                        $sql = "SELECT about_id, name, student_id, contribution, quote, translation FROM about_contributions";
                         $result = mysqli_query($conn, $sql);
 
                         if ($result->num_rows > 0) {
